@@ -1,32 +1,26 @@
-<%= form_for(room) do |f| %>
-  <% if room.errors.any? %>
+<%= form_for @room , html: { multipart: true } do |f| %>
+  <% if @room.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(room.errors.count, "error") %> prohibited this room from being saved:</h2>
-
-      <ul>
-      <% room.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+      <%= t 'general.form_error' %>
     </div>
   <% end %>
 
-  <div class="field">
+  <p>
     <%= f.label :title %>
     <%= f.text_field :title %>
-  </div>
-
-  <div class="field">
+    <%= error_tag @room, :title %>
+  </p>
+  <p>
     <%= f.label :location %>
     <%= f.text_field :location %>
-  </div>
-
-  <div class="field">
+    <%= error_tag @room, :location %>
+  </p>
+  <p>
     <%= f.label :description %>
     <%= f.text_area :description %>
-  </div>
-
-  <div class="actions">
+    <%= error_tag @room, :description %>
+  </p>
+  <p>
     <%= f.submit %>
-  </div>
+  </p>
 <% end %>
