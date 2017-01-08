@@ -99,13 +99,16 @@
     notice:
       signed_in: Usuário logado com sucesso!
       signed_out: 'Logout efetuado com sucesso. Até logo!'
+      already_logged_in: "Você já está logado."
       room_created: Quarto criado com sucesso!
       room_updated: Quarto atualizado com sucesso!
       room_destroyed: Quarto removido com sucesso!
     alert:
       needs_login: 'Para continuar, você precisa estar logado'
 
-
+  dialogs:
+    destroy: 'Você tem certeza que quer remover?'
+    
   activemodel:
     attributes:
       user_session:

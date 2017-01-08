@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-before_action :set_user , only: [:show, :edit, :update, :destroy]
+  before_action :set_user , only: [:show, :edit, :update, :destroy]
+  before_action :can_change, only: [:edit, :update]
+  before_action :require_no_authentication, only: [:new, :create]
 
   def show
   end
@@ -32,10 +34,16 @@ before_action :set_user , only: [:show, :edit, :update, :destroy]
   private
 
   def set_user
-    @user = User.find(params[:id])
+    @user ||= User.find(params[:id])
   end
 
   def user_params
     params.require(:user).permit(:email, :full_name, :location, :password,:password_confirmation, :bio)
+  end
+
+  def can_change
+    unless user_signed_in? && current_user == @user
+      redirect_to user_path(params[:id])
+    end
   end
 end
