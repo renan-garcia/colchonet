@@ -14,6 +14,7 @@ before_action :set_user , only: [:show, :edit, :update, :destroy]
   def create
     @user = User.new(user_params)
     if @user.save
+      SignupMailer.confirm_email(@user).deliver
       redirect_to @user, notice: 'Cadastro criado com sucesso!'
     else
       render action: :new
@@ -25,7 +26,7 @@ before_action :set_user , only: [:show, :edit, :update, :destroy]
       redirect_to @user, notice: 'Cadastro atualizado com sucesso.'
     else
       render action: :edit
-    end    
+    end
   end
 
   private
