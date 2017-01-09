@@ -42,7 +42,7 @@ class RoomPresenter
   end
 
   def total_reviews
-    @room.reviews.size
+    @room.reviews.size.presence || 0
   end
   # Faz com que a partial 'room' seja renderizada quando chamamos o 'render'
   # com o objeto da classe room presenter.

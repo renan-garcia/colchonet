@@ -80,6 +80,8 @@ test:
 #
 production:
   <<: *default
-  database: colchonet_production
-  username: colchonet
-  password: <%= ENV['COLCHONET_DATABASE_PASSWORD'] %>
+  database: d8vtkgsh6502o2
+  host: ec2-54-225-104-61.compute-1.amazonaws.com
+  username: ddzcmrwwlgsunk
+  password: 30e60edc29833d644e6181a46b5225bec08281c4378b23cf99a52faee0e99f1e
+  port: 5432
