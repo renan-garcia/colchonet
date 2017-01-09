@@ -10,7 +10,8 @@ $error-text-color: #B94A48;
 $success-text-color: #468847;
 
 *{
-  font-family: $sans-serif-families; font-size: 14px;
+  font-family: $sans-serif-families;
+  font-size: 14px;
 }
 
 body { background-color: #f5f5f5; }
@@ -26,7 +27,7 @@ header {
   height: $header-height;
   background-color: #9ECE71;
   h1 {
-    float: left; a{
+      float: left; a{
       color: #333;
       font-family: $serif-families;
       font-weight: 400;

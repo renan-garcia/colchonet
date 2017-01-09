@@ -51,8 +51,9 @@
     review:
       login_to_review: 'Faça o login para avaliar quartos'
       stats:
-        one: '(1 avaliação)'
-        other: '(%{count} avaliações)'
+        zero: 'Não há avaliações'
+        one: '(1 avaliação)'
+        other: '(%{count} avaliações)'
     search:
       search_for: 'Buscar por...'
 
@@ -108,7 +109,7 @@
 
   dialogs:
     destroy: 'Você tem certeza que quer remover?'
-    
+
   activemodel:
     attributes:
       user_session:
