@@ -2,18 +2,13 @@ class SignupMailer < ActionMailer::Base
   default from: 'no-reply@colcho.net'
   def confirm_email(user)
     @user = user
-    if Rails.env.production?
-      @user.confirm!
-    else
-      @confirmation_link = confirmation_url({
-        token: @user.confirmation_token
-      })
-
-      mail({
-        to: user.email,
-        bcc: ['sign ups <signups@colcho.net>'],
-        subject: I18n.t('signup_mailer.confirm_email.subject')
-        })
-    end
+    @confirmation_link = confirmation_url({
+      token: @user.confirmation_token
+    })
+    mail({
+      to: user.email,
+      bcc: ['sign ups <signups@colcho.net>'],
+      subject: I18n.t('signup_mailer.confirm_email.subject')
+    })
   end
 end

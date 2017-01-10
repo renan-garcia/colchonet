@@ -3,13 +3,21 @@ class RoomsController < ApplicationController
   before_action :set_my_room, only: [:edit, :update, :destroy]
 
   def index
-    @rooms = Room.most_recent.map do |room|
+    @search_query = params[:q]
+
+    rooms = Room.search(@search_query)
+
+    @rooms = rooms.most_recent.map do |room|
       RoomPresenter.new(room, self, false)
     end
+
+    # @rooms = Room.most_recent.map do |room|
+    #   RoomPresenter.new(room, self, false)
+    # end
   end
 
   def show
-    room_model = Room.find(params[:id])
+    room_model = Room.friendly.find(params[:id])
     @room = RoomPresenter.new(room_model, self)
   end
 
@@ -40,12 +48,12 @@ class RoomsController < ApplicationController
 
   def destroy
     @room.destroy
-    redirect_to rooms_url, notice: t('flash.notice.room_destroyed') 
+    redirect_to rooms_url, notice: t('flash.notice.room_destroyed')
   end
 
   private
     def set_my_room
-      @room = current_user.rooms.find(params[:id])
+      @room = current_user.rooms.friendly.find(params[:id])
     end
 
     def room_params

@@ -1,5 +1,7 @@
 <article class="room">
-  <h2><%= link_to room.title, room.route %> </h2>
+  <h2>
+    <%= link_to highlight(room.title, @search_query), room.route %>
+  </h2>
 
   <%= render partial: 'review', locals: {room: room} %>
 
@@ -13,6 +15,9 @@
     <%= link_to room.location,
     "https://maps.google.com/?q=#{room.location}", target: :blank %>
     </span>
+  </p>
+  <p>
+    <p><%= highlight(room.description || '', @search_query) %> </p>
   </p>
   <p><%= room.description %> </p>
   <% if belongs_to_user(room) %>

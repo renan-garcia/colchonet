@@ -37,6 +37,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Font Open Source. Read more: http://fontawesome.io
 gem "font-awesome-rails"
+gem 'friendly_id', github: 'FriendlyId/friendly_id', branch: 'master'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
