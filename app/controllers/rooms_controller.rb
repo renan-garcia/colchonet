@@ -1,7 +1,7 @@
 class RoomsController < ApplicationController
   before_action :require_authentication, only: [:new, :edit, :create, :update, :destroy]
   before_action :set_my_room, only: [:edit, :update, :destroy]
-
+ #asdasdasddasds
   def index
     @search_query = params[:q]
 
