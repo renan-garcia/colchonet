@@ -1,4 +1,7 @@
 class ConfirmationsController < ApplicationController
+
+	#asdasdasdsa
+
 	def show
 		user = User.find_by_confirmation_token(params[:token])
 		if user.present?

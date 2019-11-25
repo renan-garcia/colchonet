@@ -3,3 +3,4 @@ class HomeController < ApplicationController
     @rooms = Room.take(3)
   end
 end
+#Teste
